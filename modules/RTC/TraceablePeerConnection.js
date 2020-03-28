@@ -27,7 +27,7 @@ const SIM_LAYER_2_RID = '2';
 const SIM_LAYER_3_RID = '3';
 const SIM_LAYER_RIDS = [ SIM_LAYER_1_RID, SIM_LAYER_2_RID, SIM_LAYER_3_RID ];
 const SIM_LAYER_BITRATES_BPS = [ 200000, 700000, 2500000 ];
-const DESKSTOP_SHARE_RATE = 900000;
+const DESKSTOP_SHARE_RATE = 9000000;
 
 /* eslint-disable max-params */
 
@@ -1917,8 +1917,7 @@ TraceablePeerConnection.prototype._insertUnifiedPlanSimulcastReceive
 TraceablePeerConnection.prototype.setMaxBitRate = function(localTrack) {
     const mediaType = localTrack.type;
 
-    if (!this.options.capScreenshareBitrate
-        || mediaType === MediaType.AUDIO) {
+    if (mediaType === MediaType.AUDIO) {
 
         return;
     }
