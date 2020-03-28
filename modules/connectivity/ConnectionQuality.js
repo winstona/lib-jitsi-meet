@@ -126,7 +126,7 @@ function getTarget(simulcast, resolution, millisSinceStart) {
         } else if (pixels <= 960 * 540) {
             target = 2000;
         } else {
-            target = 2500;
+            target = 9500;
         }
     }
 
