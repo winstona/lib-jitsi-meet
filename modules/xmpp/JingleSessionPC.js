@@ -295,6 +295,7 @@ export default class JingleSessionPC extends JingleSession {
             pcOptions.enableFirefoxSimulcast
                 = options.testing && options.testing.enableFirefoxSimulcast;
             pcOptions.enableLayerSuspension = options.enableLayerSuspension;
+            pcOptions.desktopBitRate = options.testing && options.testing.desktopBitRate;
 
             // disable simulcast for screenshare and set the max bitrate to
             // 500Kbps if the testing flag is present in config.js.

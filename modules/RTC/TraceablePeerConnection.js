@@ -1929,6 +1929,8 @@ TraceablePeerConnection.prototype.setMaxBitRate = function(localTrack) {
     const videoType = localTrack.videoType;
     const trackId = localTrack.track.id;
 
+    const options = this.options;
+
     this.peerconnection.getSenders()
         .filter(s => s.track && s.track.id === trackId)
         .forEach(sender => {
@@ -1941,7 +1943,7 @@ TraceablePeerConnection.prototype.setMaxBitRate = function(localTrack) {
                         if (parameters.encodings.hasOwnProperty(encoding)) {
                             parameters.encodings[encoding].maxBitrate
                                 = videoType === 'desktop'
-                                    ? DESKSTOP_SHARE_RATE
+                                    ? (options.desktopBitRate || DESKSTOP_SHARE_RATE)
                                     : SIM_LAYER_BITRATES_BPS[encoding];
                         }
                     }
